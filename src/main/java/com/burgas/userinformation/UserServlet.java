@@ -15,11 +15,17 @@ import java.io.IOException;
 })
 public class UserServlet extends HttpServlet {
 
+    public static final String PARAMETER_NAME_OF_NAME = "name";
+    public static final String PARAMETER_NAME_OF_EMAIL = "email";
+    public static final String PARAMETER_NAME_OF_COUNTRY = "country";
+    public static final String PARAMETER_NAME_OF_CITY = "city";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
-        request.setAttribute("name", getRequestParameter(request, "name"));
-        request.setAttribute("email", getRequestParameter(request, "email"));
-        request.setAttribute("country", getContextParameter("country"));
-        request.setAttribute("city", getContextParameter("city"));
+
+        request.setAttribute(PARAMETER_NAME_OF_NAME, getRequestParameter(request, PARAMETER_NAME_OF_NAME));
+        request.setAttribute(PARAMETER_NAME_OF_EMAIL, getRequestParameter(request, PARAMETER_NAME_OF_EMAIL));
+        request.setAttribute(PARAMETER_NAME_OF_COUNTRY, getContextParameter(PARAMETER_NAME_OF_COUNTRY));
+        request.setAttribute(PARAMETER_NAME_OF_CITY, getContextParameter(PARAMETER_NAME_OF_CITY));
     }
 
     protected String getRequestParameter(HttpServletRequest request, String name) {
